@@ -75,7 +75,9 @@
 </script>
 
 
-    <script> yiliaConfig.jquery_ui = [false]; </script>
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
 
 
 
@@ -123,11 +125,6 @@
                         </div>
                         
                         
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
                     </div>
                     
                 </div>
@@ -139,8 +136,6 @@
                         
                         <li>友情链接</li>
                         
-                        
-                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -185,7 +180,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode-java/">leetcode, java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode-java/">leetcode,java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/no/">no</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li></ul>
                     </div>
                 </section>
                 
@@ -204,12 +199,6 @@
                 </section>
                 
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">专注于前端</div>
-                </section>
                 
             </div>
         </div>
@@ -268,11 +257,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-longprefix" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/01/09/longprefix/" class="article-date">
-      <time datetime="2018-01-08T17:01:34.652Z" itemprop="datePublished">2018-01-09</time>
+      <a href="/2018/01/10/hello-world/" class="article-date">
+      <time datetime="2018-01-10T13:07:54.000Z" itemprop="datePublished">2018-01-10</time>
 </a>
 
 
@@ -287,7 +276,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/09/longprefix/">test</a>
+      <a class="article-title" href="/2018/01/10/hello-world/">Hello World</a>
     </h1>
   
 
@@ -297,75 +286,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h1><p>Write a function to find the longest common prefix string amongst an array of strings.<br>题目翻译：<br>写一个函数，找到一个String数组中各个字符串的最长公共前缀。</p>
-<h1 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2.解题思路"></a>2.解题思路</h1><p>这道题的难度是easy，确实解题思路也比较直观，首先找到前两个字符串的最长公共前缀，然后再利用这个公共前缀和后面的字符串进行比对得到最长公共前缀，依次比对下去，就能得到最长的公共前缀，中间只要一步没有公共前缀，就返回空的字符串。</p>
-<h1 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3.代码实现"></a>3.代码实现</h1><ol>
-<li><p>第一种实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = strs.length;</div><div class="line">        String res = <span class="string">""</span>;</div><div class="line">        <span class="keyword">if</span>(strs==<span class="keyword">null</span>||len==<span class="number">0</span>) &#123;<span class="comment">//判断是否为空</span></div><div class="line">        	<span class="keyword">return</span> res;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(len==<span class="number">1</span>)<span class="comment">//当只有一个字符串</span></div><div class="line">            <span class="keyword">return</span> strs[<span class="number">0</span>];</div><div class="line">        <span class="comment">//char[] ch1 = strs[0].toCharArray();</span></div><div class="line">        <span class="keyword">int</span> len1=<span class="number">0</span>,len2=<span class="number">0</span>;</div><div class="line">        len1 = compareStr(strs[<span class="number">0</span>],strs[<span class="number">1</span>]);<span class="comment">//首先比较最开始的两个</span></div><div class="line">        <span class="keyword">if</span>(len1==<span class="number">0</span>)</div><div class="line">        	<span class="keyword">return</span> <span class="string">""</span>;<span class="comment">//为空就返回</span></div><div class="line">        <span class="keyword">else</span></div><div class="line">        	res = strs[<span class="number">0</span>].substring(<span class="number">0</span>, len1);<span class="comment">//注意substring的用法</span></div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=len-<span class="number">1</span>;i++) &#123;</div><div class="line">        	<span class="keyword">int</span> tmp = compareStr(res,strs[i]);<span class="comment">//依次比较前缀和下一个字符串</span></div><div class="line">        	<span class="keyword">if</span>(tmp==<span class="number">0</span>)</div><div class="line">        		<span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">        	<span class="keyword">else</span></div><div class="line">        		res = res.substring(<span class="number">0</span>,tmp);<span class="comment">//更新前缀</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span>  <span class="keyword">int</span> <span class="title">compareStr</span><span class="params">(String s1,String s2)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> len1 = s1.length();</div><div class="line">		<span class="keyword">int</span> len2 = s2.length();</div><div class="line">		<span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">		<span class="keyword">if</span>(len1==<span class="number">0</span>||len2==<span class="number">0</span>)</div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		 <span class="keyword">char</span>[] ch1 = s1.toCharArray();</div><div class="line">		 <span class="keyword">char</span>[] ch2=s2.toCharArray();</div><div class="line">		 </div><div class="line">		 <span class="keyword">int</span> com_len = len1&gt;len2?len2:len1;</div><div class="line">		 <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;com_len;i++) &#123;</div><div class="line">			 <span class="keyword">if</span>(ch1[i] == ch2[i])</div><div class="line">				 res++;</div><div class="line">			 <span class="keyword">else</span></div><div class="line">				 <span class="keyword">break</span>;</div><div class="line">		 &#125;</div><div class="line">		 <span class="keyword">return</span> res;<span class="comment">//返回前缀的长度</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>第二种实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span></div><div class="line"><span class="function">   </span>&#123;</div><div class="line">        <span class="keyword">if</span>(strs.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">        <span class="keyword">if</span>(strs.length==<span class="number">1</span>) <span class="keyword">return</span> strs[<span class="number">0</span>];</div><div class="line">        String prefix=strs[<span class="number">0</span>];<span class="comment">//初始化prefix为第一个字符串</span></div><div class="line">       </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;strs.length;i++)</div><div class="line">        &#123;  <span class="comment">//利用循环依次判断是否存在</span></div><div class="line">            <span class="keyword">while</span>(strs[i].indexOf(prefix,<span class="number">0</span>)!=<span class="number">0</span>)</div><div class="line">            &#123;   <span class="comment">//当prefix为空的时候，就退出</span></div><div class="line">                <span class="keyword">if</span>(prefix.length()-<span class="number">1</span>&lt;=<span class="number">0</span>) &#123;</div><div class="line">                   prefix=<span class="string">""</span>;</div><div class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">                &#125;</div><div class="line">                    </div><div class="line">                <span class="keyword">else</span> </div><div class="line">                    prefix=prefix.substring(<span class="number">0</span>,prefix.length()-<span class="number">1</span>);</div><div class="line">            &#125;       <span class="comment">//更新前缀</span></div><div class="line">        &#125;</div><div class="line">       <span class="keyword">return</span> prefix;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/no/">no</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-leetcode25" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/09/leetcode25/" class="article-date">
-      <time datetime="2018-01-08T17:01:34.650Z" itemprop="datePublished">2018-01-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/09/leetcode25/">Leetcode 25:Reverse Nodes in k-Group</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><excerpt in="" index="" |="" 首页摘要=""><br>+
+              <p><excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
+<ul>
+<li>hello</li></ul>
           
       
     </div>
@@ -375,13 +298,9 @@
       
 
       
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode-java/">leetcode,java</a></li></ul>
-    </div>
-
       
         <p class="article-more-link">
-          <a href="/2018/01/09/leetcode25/#more">阅读全文 >></a>
+          <a href="/2018/01/10/hello-world/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -400,11 +319,11 @@
 
 
   
-    <article id="post-leetcode23" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Maven和Java安装配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/01/09/leetcode23/" class="article-date">
-      <time datetime="2018-01-08T17:01:34.649Z" itemprop="datePublished">2018-01-09</time>
+      <a href="/2018/01/10/Maven和Java安装配置/" class="article-date">
+      <time datetime="2018-01-10T09:38:15.000Z" itemprop="datePublished">2018-01-10</time>
 </a>
 
 
@@ -419,7 +338,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/09/leetcode23/">Leetcode23:Merge k Sorted Lists</a>
+      <a class="article-title" href="/2018/01/10/Maven和Java安装配置/">Maven和Java安装配置</a>
     </h1>
   
 
@@ -429,34 +348,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1. 题目描述"></a>1. 题目描述</h1><p>Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.<br>把K个已经排序的链表合并到一起并返回它的链表头，分析并描述它的复杂度。</p>
-<h1 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2. 解题思路"></a>2. 解题思路</h1><p>这道题的难度是hard。这道题的解题思路有三种：</p>
-<ol>
-<li>首先合并前两个链表得到一个链表，然后再和第三个合并，然后再和第四个合并，依次合并下去，直到最后得到一个链表。我们计算一下复杂度。<blockquote>
-<p>1、2合并，遍历2n个节点<br>1,2结果和3合并，遍历3n个节点<br>1,2,3结果和4合并，遍历4n个节点<br>1,2,3,..,k-1结果和k合并，遍历kn个节点<br>总共遍历的节点数目为n(2+3+…+k) = n<em>(k^2+k-2)/2, 因此时间复杂度是O(n</em>(k^2+k-2)/2) = O(nk^2)。</p>
-</blockquote>
-</li>
-</ol>
-<ol>
-<li><p>利用分治的思想，先把m个链表的合并分成m/2个双链表的合并，然后一次递减直到只有最后的一个或者两个链表。仔细想想这个过程是不是二分的逆过程。这个可以使用递归来实现，同样的思路在合并两个链表里也使用过。因此算法复杂度为T(k) = 2T(k/2) + O(nk),推导得到算法复杂度为O（nklogk）。</p>
-<blockquote>
-<p>1、3合并，合并结果放到1的位置<br>2、4合并，合并结果放到2的位置<br>再把1、2合并（相当于原来的13 和 24合并）</p>
-</blockquote>
-<ol>
-<li>维护一个k个大小的最小堆，初始化堆中元素为每个链表的头结点，每次从堆中选择最小的元素加入到结果链表，再选择该最小元素所在链表的下一个节点加入到堆中。这样当堆为空时，所有链表的节点都已经加入了结果链表。元素加入堆中的复杂度为O（longk），总共有kn个元素加入堆中，因此，复杂度也和算法2一样是O（nklogk）。<h1 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3.代码实现"></a>3.代码实现</h1></li>
-</ol>
-</li>
-<li><p>依次合并</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeKLists</span><span class="params">(ListNode[] lists)</span> </span>&#123;</div><div class="line">	 <span class="keyword">int</span> n = lists.length;</div><div class="line">	</div><div class="line">	 <span class="keyword">if</span>(n==<span class="number">0</span> || lists==<span class="keyword">null</span>)</div><div class="line">		 <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">     <span class="comment">//if(n==1)</span></div><div class="line">       <span class="comment">//  return lists[0];       </span></div><div class="line">		 <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++) &#123;</div><div class="line">			 lists[<span class="number">0</span>] = mergeTwoLists(lists[<span class="number">0</span>],lists[i]);</div><div class="line">		 &#125;</div><div class="line">		 n = k;</div><div class="line">	 &#125;</div><div class="line">	 <span class="keyword">return</span> lists[<span class="number">0</span>];</div><div class="line"> &#125;</div><div class="line">     <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(l1==<span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> l2;</div><div class="line">        <span class="keyword">if</span>(l2==<span class="keyword">null</span>)</div><div class="line">        	<span class="keyword">return</span> l1;</div><div class="line">        ListNode head = <span class="keyword">null</span>;</div><div class="line">       </div><div class="line">        ListNode head_c = l1.val&gt;l2.val?l2:l1;</div><div class="line">        head = head_c;</div><div class="line">        </div><div class="line">        <span class="keyword">while</span>(l1 !=<span class="keyword">null</span> &amp;&amp; l2!=<span class="keyword">null</span>) &#123;</div><div class="line">        	<span class="keyword">if</span>(l1.val&gt;l2.val) &#123;</div><div class="line">        		head.next = l2;</div><div class="line">        		l2 = l2.next;</div><div class="line">        	&#125;</div><div class="line">        	<span class="keyword">else</span> &#123;</div><div class="line">        		head.next = l1;</div><div class="line">        		l1 = l1.next;</div><div class="line">        	&#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(l1==<span class="keyword">null</span>) &#123;</div><div class="line">        	head.next = l2;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">        	head.next = l1;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> head_c.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>分支思想、两两合并</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Definition for singly-linked list.</span></div><div class="line"><span class="comment"> * public class ListNode &#123;</span></div><div class="line"><span class="comment"> *     int val;</span></div><div class="line"><span class="comment"> *     ListNode next;</span></div><div class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></div><div class="line"><span class="comment"> * &#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeKLists</span><span class="params">(ListNode[] lists)</span> </span>&#123;</div><div class="line">	 <span class="keyword">int</span> n = lists.length;</div><div class="line">	</div><div class="line">	 <span class="keyword">if</span>(n==<span class="number">0</span> || lists==<span class="keyword">null</span>)</div><div class="line">		 <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">     <span class="comment">//if(n==1)</span></div><div class="line">       <span class="comment">//  return lists[0];</span></div><div class="line">	 <span class="keyword">while</span>(n&gt;<span class="number">1</span>) &#123;</div><div class="line">		 <span class="keyword">int</span> k = (n+<span class="number">1</span>)/<span class="number">2</span>;</div><div class="line">         </div><div class="line">		 <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n/<span class="number">2</span>;i++) &#123;<span class="comment">//注意这里i的取值范围，因为n存在奇偶两种情况</span></div><div class="line">			 lists[i] = mergeTwoLists1(lists[i],lists[i+k]);</div><div class="line">		 &#125;</div><div class="line">		 n = k;</div><div class="line">	 &#125;</div><div class="line">	 <span class="keyword">return</span> lists[<span class="number">0</span>];</div><div class="line"> &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists1</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(l1==<span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> l2;</div><div class="line">        <span class="keyword">if</span>(l2==<span class="keyword">null</span>)</div><div class="line">        	<span class="keyword">return</span> l1;</div><div class="line">       <span class="keyword">if</span>(l1.val&lt;l2.val) &#123;</div><div class="line">    	   l1.next = mergeTwoLists1(l1.next,l2);</div><div class="line">    	   <span class="keyword">return</span> l1;</div><div class="line">       &#125;<span class="keyword">else</span> &#123;</div><div class="line">    	   l2.next = mergeTwoLists1(l2.next,l1);</div><div class="line">    	   <span class="keyword">return</span> l2;  </div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>维护最小堆</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeKLists</span><span class="params">(List&lt;ListNode&gt; lists)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (lists==<span class="keyword">null</span>||lists.size()==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        </div><div class="line">        PriorityQueue&lt;ListNode&gt; queue= <span class="keyword">new</span> PriorityQueue&lt;ListNode&gt;(lists.size(),<span class="keyword">new</span> Comparator&lt;ListNode&gt;()&#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(ListNode o1,ListNode o2)</span></span>&#123;</div><div class="line">                <span class="keyword">if</span> (o1.val&lt;o2.val)</div><div class="line">                    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (o1.val==o2.val)</div><div class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">                <span class="keyword">else</span> </div><div class="line">                    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;);<span class="comment">//建堆并重写compare函数</span></div><div class="line">        </div><div class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</div><div class="line">        ListNode tail=dummy;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (ListNode node:lists)</div><div class="line">            <span class="keyword">if</span> (node!=<span class="keyword">null</span>)</div><div class="line">                queue.add(node);</div><div class="line">            </div><div class="line">        <span class="keyword">while</span> (!queue.isEmpty())&#123;</div><div class="line">            tail.next=queue.poll();<span class="comment">//取出堆中的最小值</span></div><div class="line">            tail=tail.next;</div><div class="line">            <span class="comment">//并把所在链表的下一个放入堆中</span></div><div class="line">            <span class="keyword">if</span> (tail.next!=<span class="keyword">null</span>)</div><div class="line">                queue.add(tail.next);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> dummy.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-
+              <p><excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
+<ul>
+<li>下载安装Java和Maven</li></ul>
+          
       
     </div>
     
@@ -466,133 +361,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode-java/">leetcode, java</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/">Maven</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/09/hello-world/" class="article-date">
-      <time datetime="2018-01-08T17:01:34.646Z" itemprop="datePublished">2018-01-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/09/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-3sum" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/09/3sum/" class="article-date">
-      <time datetime="2018-01-08T17:01:34.644Z" itemprop="datePublished">2018-01-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/09/3sum/">3sum</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>12345</p>
-<p><excerpt in="" index="" |="" 首页摘要=""><br>+
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
       
         <p class="article-more-link">
-          <a href="/2018/01/09/3sum/#more">阅读全文 >></a>
+          <a href="/2018/01/10/Maven和Java安装配置/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -625,32 +399,51 @@
             </div>
         </div>
         
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
     </div>
 </footer>
     </div>
     
 <script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 2;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
 
 
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <div class="scroll" id="scroll">
