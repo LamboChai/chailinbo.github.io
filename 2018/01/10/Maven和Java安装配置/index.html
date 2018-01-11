@@ -15,13 +15,13 @@
 
 
 
-<meta name="description" content="下载安装Java和Maven">
+<meta name="description" content="+ 下载安装Java和Maven">
 <meta name="keywords" content="Maven">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven和Java安装配置">
 <meta property="og:url" content="http://yoursite.com/2018/01/10/Maven和Java安装配置/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="下载安装Java和Maven">
+<meta property="og:description" content="+ 下载安装Java和Maven">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/01/10/Maven和Java安装配置/jdk_1.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/10/Maven和Java安装配置/jdk_2.png">
@@ -29,7 +29,7 @@
 <meta property="og:updated_time" content="2018-01-10T13:04:11.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven和Java安装配置">
-<meta name="twitter:description" content="下载安装Java和Maven">
+<meta name="twitter:description" content="+ 下载安装Java和Maven">
 <meta name="twitter:image" content="http://yoursite.com/2018/01/10/Maven和Java安装配置/jdk_1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -186,7 +186,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li></ul>
                     </div>
                 </section>
                 
@@ -301,13 +301,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
-<ul>
-<li>下载安装Java和Maven<a id="more"></a><the rest="" of="" contents="" |="" 余下全文="">
+        <p><excerpt in="" index="" |="" 首页摘要=""> 
++ 下载安装Java和Maven<a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
 
 
-</the></li>
-</ul>
 <ul>
 <li><a href="#1-安装jave">1. 安装Jave</a></li>
 <li><a href="#2-安装maven">2. 安装Maven</a></li>
@@ -317,7 +315,7 @@
 <p>最近开始学习OpenDaylight开发，很多的东西的需要学习。最基础的是平台和环境的搭建，ODL是利用Java开发的，项目管理使用的是Maven，所以首先应该是安装Java和Maven:</p>
 <h1 id="1-安装Jave"><a href="#1-安装Jave" class="headerlink" title="1. 安装Jave"></a>1. 安装Jave</h1><ul>
 <li>下载JDK
-就下载JDK而言，还是去官网下载最为妥当，<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html，" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html，</a>
+就下载JDK而言，还是去官网下载最为妥当，http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html，
 附上链接，选择对应的版本：</li>
 </ul>
 <p><img src="/2018/01/10/Maven和Java安装配置/jdk_1.png" alt="jdk_1"></p>
@@ -327,7 +325,7 @@
 </ul>
 <p>为了方便管理，我的平台工具都是放在/home/chai/tools这个文件夹下面，解压之后的jdk文件如下图所示：</p>
 <p><img src="/2018/01/10/Maven和Java安装配置/jdk_2.png" alt="jdk_2"></p>
-<h1 id="2-安装Maven"><a href="#2-安装Maven" class="headerlink" title="2. 安装Maven"></a>2. 安装Maven</h1><p>Maven 是一个项目管理工具，负责项目依赖的管理、项目的构建、项目的生命周期的管理等。Maven的安装过程和java的类似，从官网下载maven的压缩包，附上地址：<a href="http://maven.apache.org/download.cgi，" target="_blank" rel="external">http://maven.apache.org/download.cgi，</a>
+<h1 id="2-安装Maven"><a href="#2-安装Maven" class="headerlink" title="2. 安装Maven"></a>2. 安装Maven</h1><p>Maven 是一个项目管理工具，负责项目依赖的管理、项目的构建、项目的生命周期的管理等。Maven的安装过程和java的类似，从官网下载maven的压缩包，附上地址：http://maven.apache.org/download.cgi，
 选择对应的版本下载：</p>
 <p><img src="/2018/01/10/Maven和Java安装配置/maven_1.png" alt="maven_1"></p>
 <p>然后解压到/home/chai/tools文件夹下，下载的位置可以根据自己的情况来确定，但是这关系到下面环境的配置，还需要慎重对待。</p>
@@ -339,7 +337,7 @@
 <p>使用<code>mvn -v</code>检测Maven版本信息：
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">chai@clb:~/tools/jdk1.8.0_144$ mvn -v</div><div class="line">Apache Maven 3.5.0 (ff8f5e7444045639af65f6095c62210b5713f426; 2017-04-04T03:39:06+08:00)</div><div class="line">Maven home: /home/chai/tools/apache-maven-3.5.0</div><div class="line">Java version: 1.8.0_144, vendor: Oracle Corporation</div><div class="line">Java home: /home/chai/tools/jdk1.8.0_144/jre</div><div class="line">Default locale: en_US, platform encoding: UTF-8</div><div class="line">OS name: &quot;linux&quot;, version: &quot;4.2.0-27-generic&quot;, arch: &quot;amd64&quot;, family: &quot;unix&quot;</div></pre></td></tr></table></figure></p>
 <p>可以看到就Java和Maven的环境配置成功了。</p>
-
+</the>
       
     </div>
     
@@ -448,7 +446,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Maven和Java安装配置/">Maven和Java安装配置</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/2018-01-11-learn_git/">git学习(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Maven和Java安装配置/">Maven和Java安装配置</a></li></ul>
 
 
 
